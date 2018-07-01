@@ -16,9 +16,9 @@ import { TabItemComponent } from "./tab-item.component"
 
         <div *ngFor="let tab of tabs">
             <div *ngIf="tab.active">
-                <ng-template [ngTemplateOutlet]="tab.tabContent.template"></ng-template>
+                <ng-template [ngTemplateOutlet]="tab.tabContent.templateRef || tab.tabContent.template"></ng-template>
                 <!-- init component -->
-                <ng-template [ngTemplateOutlet]="tab.tabContent.templateRef"></ng-template>
+                <!--<ng-template [ngTemplateOutlet]="tab.tabContent.templateRef"></ng-template>-->
             </div>
         </div>
     </div>
