@@ -1,10 +1,8 @@
 import {
   Component,
   ContentChild,
-  Input,
-  AfterContentInit
+  Input
 } from "@angular/core"
-import { TabService } from "../services/tab.service"
 import { TabTitleComponent } from "./tab-title.component"
 import { TabContentComponent } from "./tab-content.component"
 
@@ -16,10 +14,8 @@ export class TabItemComponent {
 
   @Input() public active: boolean = false;
 
-  @ContentChild(TabTitleComponent) private tabTitle: TabTitleComponent;
-  @ContentChild(TabContentComponent) private tabContent: TabContentComponent;
-
-  constructor(public service: TabService) {  }
+  @ContentChild(TabTitleComponent) public tabTitle: TabTitleComponent;
+  @ContentChild(TabContentComponent) public tabContent: TabContentComponent;
 
   setActive(): void {
     this.active = true;

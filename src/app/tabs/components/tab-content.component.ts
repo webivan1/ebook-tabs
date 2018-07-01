@@ -1,8 +1,13 @@
-import { Component, ViewChild, TemplateRef } from "@angular/core"
+import {
+  Component,
+  TemplateRef,
+  ContentChild,
+  ViewChild
+} from "@angular/core"
 
 @Component({
   selector: 'tab-content',
-  template: `
+  template: `    
       <ng-template #template>
           <ng-content></ng-content>
       </ng-template>
@@ -10,4 +15,5 @@ import { Component, ViewChild, TemplateRef } from "@angular/core"
 })
 export class TabContentComponent {
   @ViewChild('template') template: TemplateRef<any>;
+  @ContentChild(TemplateRef) templateRef: TemplateRef<any>;
 }

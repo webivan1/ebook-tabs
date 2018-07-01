@@ -14,6 +14,10 @@
         </tab-title>
         <tab-content>
             Tab <b>{{ tab }}</b> content
+
+            <ng-template>
+                <test [tab]="tab"></test>
+            </ng-template>
         </tab-content>
     </tab>
 </tabs>

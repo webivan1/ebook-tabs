@@ -1,10 +1,8 @@
 import { Component, ContentChildren, QueryList } from "@angular/core"
-import { TabService } from "../services/tab.service"
 import { TabItemComponent } from "./tab-item.component"
 
 @Component({
   selector: 'tabs',
-  providers: [ TabService ],
   template: `
     <div class="tabs__titles">
         <div 
@@ -17,7 +15,11 @@ import { TabItemComponent } from "./tab-item.component"
         </div>
 
         <div *ngFor="let tab of tabs">
-            <ng-template *ngIf="tab.active" [ngTemplateOutlet]="tab.tabContent.template"></ng-template>
+            <div *ngIf="tab.active">
+                <ng-template [ngTemplateOutlet]="tab.tabContent.template"></ng-template>
+                <!-- init component -->
+                <ng-template [ngTemplateOutlet]="tab.tabContent.templateRef"></ng-template>
+            </div>
         </div>
     </div>
   `
